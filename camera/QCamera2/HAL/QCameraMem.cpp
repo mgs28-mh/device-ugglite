@@ -34,7 +34,7 @@
 #include <utils/Errors.h>
 #define MMAN_H <SYSTEM_HEADER_PREFIX/mman.h>
 #include MMAN_H
-#include "gralloc.h"
+#include "hardware/gralloc.h"
 #include "gralloc_priv.h"
 
 // Camera dependencies
@@ -1771,11 +1771,9 @@ int QCameraVideoMemory::convCamtoOMXFormat(cam_format_t format)
         case CAM_FORMAT_YUV_420_NV12_VENUS:
             omxFormat = OMX_COLOR_FormatYUV420SemiPlanar;
             break;
-#ifndef VANILLA_HAL
         case CAM_FORMAT_YUV_420_NV12_UBWC:
             omxFormat = QOMX_COLOR_FORMATYUV420PackedSemiPlanar32mCompressed;
             break;
-#endif
         default:
             omxFormat = OMX_COLOR_FormatYUV420SemiPlanar;
     }
@@ -2053,8 +2051,7 @@ int32_t QCameraGrallocMemory::dequeueBuffer()
             mPrivateHandle[dequeuedIdx] =
                     (struct private_handle_t *)(*mBufferHandle[dequeuedIdx]);
             //update max fps info
-        float refreshShow = (float) mMaxFPS;
-        setMetaData(mPrivateHandle[dequeuedIdx], UPDATE_REFRESH_RATE, (void*)&refreshShow);
+            setMetaData(mPrivateHandle[dequeuedIdx], UPDATE_REFRESH_RATE, (void*)&mMaxFPS);
             mMemInfo[dequeuedIdx].main_ion_fd = open("/dev/ion", O_RDONLY);
             if (mMemInfo[dequeuedIdx].main_ion_fd < 0) {
                 LOGE("failed: could not open ion device");

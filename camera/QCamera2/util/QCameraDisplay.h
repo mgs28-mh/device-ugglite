@@ -1,4 +1,4 @@
-/* Copyright (c) 2015-2018, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015-2017, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -37,6 +37,7 @@
 #include <android/frameworks/displayservice/1.0/IDisplayService.h>
 #include <android/frameworks/displayservice/1.0/IEventCallback.h>
 #include <android/frameworks/displayservice/1.0/IDisplayEventReceiver.h>
+#include <android/looper.h>
 #include <utils/Looper.h>
 
 using ::android::frameworks::displayservice::V1_0::IDisplayEventReceiver;

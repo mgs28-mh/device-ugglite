@@ -38,11 +38,11 @@
 #include <linux/media.h>
 #include <media/msm_cam_sensor-legacy.h>
 #include <dlfcn.h>
-#include <unistd.h>
+
 #define IOCTL_H <SYSTEM_HEADER_PREFIX/ioctl.h>
 #include IOCTL_H
 
-#define EXTRA_ENTRY 8
+#define EXTRA_ENTRY 6
 
 // Camera dependencies
 #include "mm_camera_dbg.h"

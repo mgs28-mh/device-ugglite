@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/wave_rolex.mk
+    $(LOCAL_DIR)/wave_ugglite.mk
 
 COMMON_LUNCH_CHOICES := \
-    wave_rolex-user \
-    wave_rolex-userdebug \
-    wave_rolex-eng
+    wave_ugglite-user \
+    wave_ugglite-userdebug \
+    wave_ugglite-eng

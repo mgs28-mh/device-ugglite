@@ -18,7 +18,7 @@
 
 set -e
 
-DEVICE=rolex
+DEVICE=ugglite
 VENDOR=xiaomi
 
 # Load extractutils and do some sanity checks

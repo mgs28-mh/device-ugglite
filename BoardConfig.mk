@@ -16,50 +16,57 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/rolex
+DEVICE_PATH := device/xiaomi/ugglite
 
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
-    vendor/xiomi/rolex \
-    kernel/xiaomi/msm8917
+    vendor/xiomi/ugglite \
+    kernel/xiaomi/ugglite
 
 # Architecture
-TARGET_ARCH 	    	:= arm64
-TARGET_ARCH_VARIANT 	:= armv8-a
-TARGET_CPU_ABI 		:= arm64-v8a
-TARGET_CPU_ABI2 	:=
-TARGET_CPU_VARIANT 	:= cortex-a53
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
 
-# Second architecture
-TARGET_2ND_ARCH 	:= arm
+TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
-TARGET_2ND_CPU_ABI 	:= armeabi-v7a
-TARGET_2ND_CPU_ABI2 	:= armeabi
-TARGET_2ND_CPU_VARIANT 	:= cortex-a53
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := cortex-a53
 
-TARGET_BOARD_PLATFORM 	  := msm8937
+TARGET_BOARD_PLATFORM := msm8937
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno308
+
+# Build
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
 
 # Binder
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME 	:= msm8937
+TARGET_BOOTLOADER_BOARD_NAME 	:= MSM8937
 TARGET_NO_BOOTLOADER 		:= true
 
-# kernel
-BOARD_KERNEL_BASE		:= 0x80000000
-BOARD_KERNEL_CMDLINE 		:= console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78B0000 androidboot.usbconfigfs=false loop.max_part=7
-BOARD_KERNEL_IMAGE_NAME 	:= Image.gz-dtb
-BOARD_KERNEL_PAGESIZE 		:=  2048
-BOARD_MKBOOTIMG_ARGS 		:= --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100
-TARGET_KERNEL_CONFIG 		:= rova_defconfig
-TARGET_KERNEL_SOURCE 		:= kernel/xiaomi/msm8917
-TARGET_KERNEL_VERSION         := 4.9
-TARGET_KERNEL_CLANG_COMPILE     := true
-TARGET_EXFAT_DRIVER		:= sdfat
+# Kernel
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78B0000 androidboot.usbconfigfs=true
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += loop.max_part=7
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_CONFIG := mi8937_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/ugglite
+TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_COMPILE_WITH_MSM_KERNEL	:= true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -143,7 +150,7 @@ endif
 
 #Display
 BOARD_USES_ADRENO := true
-TARGET_SCREEN_DENSITY := 280
+TARGET_SCREEN_DENSITY := 295
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
 TARGET_USES_GRALLOC1 := true
@@ -159,9 +166,6 @@ TARGET_CONTINUOUS_SPLASH_ENABLED := true
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
-
-# DT2W
-TARGET_TAP_TO_WAKE_NODE := "proc/gesture/onoff"
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -185,10 +189,10 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
-#TARGET_INIT_VENDOR_LIB         := libinit_rolex
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_rolex
+#TARGET_INIT_VENDOR_LIB         := libinit_ugglite
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_ugglite
 TARGET_PLATFORM_DEVICE_BASE    := /devices/soc/
-TARGET_RECOVERY_DEVICE_MODULES := libinit_rolex
+TARGET_RECOVERY_DEVICE_MODULES := libinit_ugglite
 
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
@@ -204,7 +208,7 @@ BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 MALLOC_SVELTE := true
 
 # OTA
-TARGET_OTA_ASSERT_DEVICE := rolex,riva,rova
+TARGET_OTA_ASSERT_DEVICE := ugglite
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 67108864
@@ -229,8 +233,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_PER_MGR_ENABLED := true
 
 # Power
-TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
-BOARD_POWER_CUSTOM_BOARD_LIB := libpower_8937
+TARGET_TAP_TO_WAKE_NODE := "/proc/sys/dev/dt2w"
+TARGET_USES_INTERACTION_BOOST := true
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -274,4 +278,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files
--include vendor/xiaomi/rolex/BoardConfigVendor.mk
+-include vendor/xiaomi/ugglite/BoardConfigVendor.mk

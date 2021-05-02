@@ -1,16 +1,5 @@
 [
    {
-      "repository":"vendor_xiaomi_rolex",
-      "target_path":"vendor/xiaomi/rolex"
-   },
-   {
-      "repository":"Thagoo/platform_kernel_xiaomi_msm8917",
-      "target_path":"kernel/xiaomi/msm8917",
-      "remote":"github",
-      "branch":"r",
-      "clone-depth":"1"
-   },
-   {
       "repository":"packages_apps_Snap",
       "target_path":"packages/apps/Snap"
    },
