@@ -1785,7 +1785,7 @@ vendor/lib/libmmcamera2_pp_buf_mgr.so|086e503a429ba182e7b733010930c4e5de09a723
 vendor/lib/libmmcamera2_q3a_core.so|961bd0dab460af317ed6d2d2076d92b826f8a55b
 vendor/lib/libmmcamera2_sensor_modules.so|1a61adabcc77b4e7e27868c71c47c0a695717201
 vendor/lib/libmmcamera2_stats_algorithm.so|8cbc01470851debe2ff00334ba583e0b7548eb1b
-vendor/lib/libmmcamera2_stats_modules.so|085b9753d3d680caceefbcd580459ed103fc786f
+vendor/lib/libmmcamera2_stats_modules.so|71283aa34c3a8ea09c0bf7cf7cd8b6b0bdca0c5a
 vendor/lib/libmmcamera_atmel_at24c32e_eeprom.so|4a5a1462d3035c9648b47ac0abc7226c73d59ec0
 vendor/lib/libmmcamera_cac3_lib.so|f96ac4205f02786272ec6622c4123a94104666c6
 vendor/lib/libmmcamera_chromaflash_lib.so|266522e4bd20299c67d56ab9c1912c57b1d3b6c1
@@ -1953,3 +1953,6 @@ vendor/etc/qdcm_calib_data_ili9881c_HD720p_video_Ebbg_c3b.xml|814bc2ee08678f07a2
 vendor/etc/diracmobile.config|d781cd6798a7481a8f7128d144abfb2b8794212d
 vendor/lib/libDiracAPI_SHARED.so|42b49679d38eca93fead05ea06ddbdc8108fd4b1
 vendor/lib/soundfx/libdirac.so|f63826a905b520fa524e4c1b147be7cf65240953
+
+# Consumer IR - ugg 7.1.2 N2G47H V11.0.2.0.NDKMIXM
+vendor/lib64/hw/consumerir.default.so|0c7026fe6b1f3bbb4a41389cf8f9849c6a3202c6
