@@ -171,7 +171,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.device@3.5 \
     android.hardware.camera.provider@2.5 \
     android.hardware.camera.provider@2.6 \
-    vendor.qti.hardware.camera.device@1.0
+    vendor.qti.hardware.camera.device@1.0 \
+    libandroid_shim
 
 # Charging images
 PRODUCT_PACKAGES += \
@@ -220,11 +221,6 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     android.hardware.renderscript@1.0-impl
-
-#PRODUCT_COPY_FILES += \
-    #$(LOCAL_PATH)/configs/qdcm_calib_data_hx8394F_HD720p_video_BOE.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_hx8394F_HD720p_video_BOE.xml \
-    #$(LOCAL_PATH)/configs/qdcm_calib_data_ili9881c_HD720p_video_Tianma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_ili9881c_HD720p_video_Tianma.xml \
-    #$(LOCAL_PATH)/configs/qdcm_calib_data_nt35521s_HD720p_video_EBBG.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_nt35521s_HD720p_video_EBBG.xml
 
 # Display calibration
 PRODUCT_PACKAGES += \
