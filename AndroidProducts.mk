@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/wave_ugglite.mk
+    $(LOCAL_DIR)/dot_ugglite.mk
 
 COMMON_LUNCH_CHOICES := \
-    wave_ugglite-user \
-    wave_ugglite-userdebug \
-    wave_ugglite-eng
+    dot_ugglite-user \
+    dot_ugglite-userdebug \
+    dot_ugglite-eng
