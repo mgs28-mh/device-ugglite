@@ -20,10 +20,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
-# Inherit some common Dot-OS stuff
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common P-404 stuff
+$(call inherit-product, vendor/404/configs/common.mk)
 
-TARGET_GAPPS_ARCH := arm64
+#TARGET_GAPPS_ARCH := arm64
 TARGET_BOOT_ANIMATION_RES := 720
 TARGET_INCLUDE_STOCK_ARCORE := false
 TARGET_INCLUDE_LIVE_WALLPAPERS := false
@@ -35,15 +35,10 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := ugglite
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Redmi Note 5A
-PRODUCT_NAME := aosp_ugglite
+PRODUCT_NAME := p404_ugglite
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 TARGET_VENDOR_PRODUCT_NAME := ugglite
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE="ugglite" \
-    PRODUCT_NAME="ugglite" \
-    PRIVATE_BUILD_DESC="ugglite-user 7.1.2 N2G47H V11.0.3.0.NDFMIXM release-keys"
-
-BUILD_FINGERPRINT := "xiaomi/ugglite/ugglite:7.1.2/N2G47H/V11.0.3.0.NDFMIXM:user/release-keys"
+BUILD_FINGERPRINT := google/redfin/redfin:11/RQ2A.210505.003/7255357:user/release-keys

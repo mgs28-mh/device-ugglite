@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_ugglite.mk
+    $(LOCAL_DIR)/p404_ugglite.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_ugglite-user \
-    aosp_ugglite-userdebug \
-    aosp_ugglite-eng
+    p404_ugglite-user \
+    p404_ugglite-userdebug \
+    p404_ugglite-eng
