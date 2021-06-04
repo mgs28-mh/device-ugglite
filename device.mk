@@ -410,7 +410,6 @@ TARGET_BOARD_PLATFORM += msm8937
 TARGET_COMMON_QTI_COMPONENTS := \
     av \
     bt \
-    telephony \
     perf
 
 # RCS
